@@ -1,0 +1,55 @@
+<div>  
+    <div class="row" style="padding-bottom: 0px; margin: -15px 3px 16px;border-bottom: 1px solid #eee;">  
+        <span style="color:forestgreen;font-size:25px;" class="col-sm-11">MY CART HAVING {{orderList.length}} ITEMS </span> 
+        <!--<i class="fa fa-shopping-cart fa-2x" style="float:right;margin-right:20px;" aria-hidden="true"><span>{{orderList.length}}</span></i> -->
+    </div>
+    <div class="row" style="background-color:antiquewhite;margin-left: 25px;margin-right: 25px;padding: 10px;" *ngIf="viewDiv">
+        <span>{{viewMessage}}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span *ngIf="viewUndo" style="font-size:15px;color:cornflowerblue;cursor: pointer;" (click)="undoRemovedList();">UNDO</span>
+    </div>
+    <div *ngIf="orderList.length > 0"> 
+    <div class="row" style="border-bottom: 4px solid forestgreen;margin:1%;">
+        <h5 class="col-sm-2" style="margin-left:25px;"></h5>
+        <h5 class="col-sm-3" style="font-weight:bold;"> PRODUCT INFO</h5>
+        <h5 class="col-sm-2" style="font-weight:bold;"> PRICE</h5>
+         <h5 class="col-sm-2" style="font-weight:bold;"> QUANTITY</h5>          
+           <h5 class="col-sm-2" style="font-weight:bold;"> Total</h5>
+    </div>
+     
+    <div class="list-group row" *ngFor="let order of orderList; let i = index" style="padding:0.5%;border-bottom: 3px solid #eee;">  
+        <!--<a href="#" class="list-group-item active">  -->
+           <img src="{{order.imageUrl}}" style="width:12%; height:5%;" class="col-sm-1"/>
+            <span class="list-group-item-heading col-sm-3" style="margin-left:7%;">                
+            <span style="color:forestgreen;font-size:20px;">{{order.name}}</span><br />
+            <span>{{order.netContent}}</span><br /><br />           
+                <button class="btn btn-default flat-btn" (click)="removeShoppingCartItem(i, order)">Delete Item</button>
+            </span>  
+            <p class="list-group-item-text col-sm-2" style="margin-left:-1%;">{{order.price |currency:'USD':true:'1.2-2'}}</p>  
+            <p class="list-group-item-text col-sm-2" style="margin-left:0%;"><i class="fa fa-minus-square fa-1x" (click)="subtractQuantity(order)" style="color:forestgreen;" aria-hidden="true"></i> &nbsp;
+            <input class="txtQuant" type="text" [formControl]="txt_quantity" [value]="order.quantity" (change)="updateQuantity(order, txt_quantity)"/> &nbsp;<i class="fa fa-plus-square fa-1x" (click)="addQuantity(order)" style="color:forestgreen;" aria-hidden="true"></i></p>  
+             <!--<p class="list-group-item-text col-sm-2">{{order.quantity}}</p>-->
+            <p class="list-group-item-text col-sm-2" style="margin-left:-1%;">{{order.price * order.quantity |currency:'USD':true:'1.2-2'}}</p>  
+        <!--</a>  -->
+    </div>  
+    
+    <div class="row" style="margin-bottom:5%;">
+        <span class="col-sm-4"></span>
+        <span class="col-sm-2">
+           <button type="button" class="btn btn-info" style="height:40%;width:80%" (click)="navigateToLogout();">
+            <span class="button-text uppercase">Checkout</span>
+            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+            </button><br /><br />
+            <a [routerLink]="['/dashboard']" style="font-size:20px;">Continue Shopping</a>
+        </span>
+       
+    <span  style="font-weight:bold;margin-left:15%;">SUB TOTAL :</span><span style="margin-left:5%"> {{subTotal |currency:'USD':true:'1.2-2'}}</span><br />
+   <span style="border-bottom:2px solid #eee;    padding-bottom: 5px;"><span style="margin-left:15%;font-weight:bold;"> Delivery charges :</span> <span style="margin-left:4%"> {{deliveryCharge|currency:'USD':true:'1.2-2'}}</span>&nbsp;&nbsp;</span><br/>
+   <span><span style="margin-left:15%;font-weight:bold;"> Amount Payable :</span> <span style="margin-left:3%"> {{ subTotal + deliveryCharge|currency:'USD':true:'1.2-2'}}</span>&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <button type="button" class="btn btn-success">Proceed Payment&nbsp;<i class="fa fa-chevron-circle-right" aria-hidden="true"></i></button>
+    </div> 
+    </div>   
+    <div *ngIf="orderList.length == 0"> 
+        <img src="//img1a.flixcart.com/www/linchpin/fk-cp-zion/img/empty-cart_ee6141.png" class="emptyImg">
+        <h4 style="color:forestgreen; margin-left: 38%;">Your Shopping Cart is empty</h4>
+        <a><span style=" margin-left: 40%;"> +Add items from wishlist</span></a>
+    </div>
+</div>  

@@ -1,0 +1,44 @@
+[{  
+    "id": 1,  
+    "name": "Forever Bee Honey™",  
+    "description": "This great-tasting, all natural sweetener is loaded with nature’s goodness.Throughout the ages, honey has been recognized as a premium natural food – a storehouse of energy that is easily digestible. This great-tasting, all natural sweetener is loaded with nature’s goodness.",
+    "quantity": 1,
+    "price": 250.00,
+    "imageUrl":"assets/images/honey.png",
+    "netContent":"NET CONTENT: 500g"  
+}, {  
+    "id": 2,  
+    "name": "Forever Aloe Vera Gel™",  
+    "description": "Imagine slicing open an Aloe leaf and consuming the gel directly from the plant. Our Forever Aloe Vera Gel™ is as close to the real thing as you can get.The miraculous aloe leaf has been found to contain more than 200 compounds. A product of our patented aloe stabilization process, our gel is favoured by those looking to maintain a healthy digestive system and a natural energy level.", 
+    "quantity": 2,
+    "price": 250.00,
+    "imageUrl":"assets/images/product2.jpg" ,
+    "netContent":"NET CONTENT: 1 Litre" 
+}, {  
+    "id": 3,  
+    "name": "Forever Aloe Lips™ with Jojoba",  
+    "description": "Forever Aloe Lips™ soothes, smoothes and moisturizes chapped and dry lips. The soothing properties of Aloe Vera are ideally suited to care for your lips. Aloe, jojoba and beeswax combine to create the finest all-season lip product on the market today.", 
+    "quantity": 1,
+    "price": 250.00,
+    "imageUrl":"assets/images/aloeLips.png",
+    "netContent":"NET CONTENT: 4.25 g"   
+},
+{  
+    "id": 4,  
+    "name": "Forever Bright™ Toothgel",  
+    "description": "In this article, you will learn how to bind data with observable and display using service and Web API in Angular 2." , 
+    "quantity": 1,
+    "price": 250.00,
+    "imageUrl":"assets/images/toothgel.png" ,
+    "netContent":"NET CONTENT: 130 g" 
+}, 
+{  
+    "id": 5,  
+    "name": "Forever Daily™",  
+    "description": "Forever Daily™ with AOS delivers a perfectly balanced blend of 55 nutrients, including essential vitamins and minerals, providing more efficient absorption and in the case of minerals, targeting specific body systems.Forever Daily’s unique formula is designed to nourish and protect our bodies by filling the nutrient gaps in our everyday diet and provide optimal health and vitality." , 
+    "quantity": 1,
+    "price": 250.00,
+    "imageUrl":"assets/images/product4.jpg" ,
+    "netContent":"NET CONTENT: 60N tablets" 
+}
+]   

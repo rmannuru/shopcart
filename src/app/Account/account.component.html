@@ -1,0 +1,39 @@
+<nav class="navbar navbar-inverse bg-primary row">
+  <a routerLink="/account/shop-cart" class="navbar-brand col-sm-4" href="#" style="color:white;"><img src="assets/images/lo.png"style="width: 50%;height: 290%;margin-top: -14px;"/></a>
+ <ul class="nav navbar-nav">
+<li><a [routerLink]="['/account/dashboard']"  routerLinkActive="router-link-active" style="color:white;"><i class="fa fa-tachometer fa-2x" aria-hidden="true"></i>&nbsp; DASHBOARD</a></li>
+<li><a [routerLink]="['/account/product']"  routerLinkActive="router-link-active" style="color:white;"><i class="fa fa fa-dropbox fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;Products</a></li>
+<li><a [routerLink]="['/account/product-details']"  routerLinkActive="router-link-active" style="color:white;"><i class="fa fa-align-justify fa-2x" aria-hidden="true"></i>&nbsp;&nbsp; PRODUCT DETAILS</a></li>
+<!--<li><a [routerLink]="['/shop-cart']"  routerLinkActive="router-link-active" style="color:white;"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>&nbsp;<span id="cartCount" class="badge" style="position: relative;bottom: 20px;right: 5px;">({{orderList.length}})</span>  <span style="margin-left: -5px;">CART</span></a></li>-->
+<li><div class="drop-down" id="shopCart" style="margin-top: 15px;">
+  <a [routerLink]="['/account/shop-cart']"  routerLinkActive="router-link-active" style="color:white;"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>&nbsp;<span id="cartCount" class="badge" style="position: relative;bottom: 20px;right: 5px;">({{orderList.length}})</span>  <span style="margin-left: -5px;">CART</span></a>
+                    <!--<i class="glyphicon glyphicon-shopping-cart cart"><span class="badge cart-badge">5</span></i>-->
+                    <div id="shopCartContent" class="drop-down-content">
+                       <span style="border-bottom:2px solid #eee;" class="row">
+                         <span class="col-sm-9" style="color:forestgreen;font-weight:bold;">YOUR CART ({{orderList.length}})items</span>
+                         <span class="col-sm-3" style="font-weight:bold;">{{subTotal |currency:'USD':true:'1.2-2'}}</span>
+                       </span>
+                        <!--<span class="row" style="font-weight:bold;margin-top: -20px;font-size:18px;">
+                          <span class="col-sm-6">Items</span>
+                          <span class="col-sm-3">Price</span>
+                          <span class="col-sm-3">Total</span>
+                        </span>-->
+                        <div class="col-sm-12" *ngFor="let order of orderList;" style="margin-top: -23px;">
+                          <img src="{{order.imageUrl}}" style="width:30%; height:4%;" class="col-sm-2"/>
+                           <span class="col-sm-8" style="color:forestgreen;">{{order.name}}</span>
+                          <span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{order.quantity }} x {{ order.price |currency:'USD':true:'1.2-2'}} 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            {{order.quantity * order.price |currency:'USD':true:'1.2-2'}}
+                          </span>                          
+                          <!--</span>-->
+                        </div>
+                   </div>
+                </div>
+                </li>
+<!--<li style="margin-top: 15px;"><my-ShopCart></my-ShopCart></li>-->
+<li><a [routerLink]="['/account/autoship']"  routerLinkActive="router-link-active" style="color:white;"><i class="fa fa-truck fa-2x" aria-hidden="true"></i>&nbsp;AUTO SHIP</a></li>
+<li><a [routerLink]="['/signout']"  routerLinkActive="router-link-active" style="color:white;"><i class="fa fa-sign-out fa-2x" aria-hidden="true"></i>&nbsp;SIGN OUT</a></li>
+</ul>   
+</nav>
+<router-outlet></router-outlet>
